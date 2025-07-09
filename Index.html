@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="iPhones Recondicionados Premium - Economize até 50% - Garantia de 1 Ano - Frete Grátis">
+  <title>NoonesTech | iPhones Recondicionados Premium</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/0/747.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #111827;
+      --secondary: #3B82F6;
+      --accent: #EF4444;
+      --light: #F3F4F6;
+      --dark: #1F2937;
+      --success: #10B981;
+      --whatsapp: #25D366;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f9fafb;
+      color: #374151;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), #1E3A8A);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .logo i {
+      color: var(--secondary);
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .benefits-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: -2rem auto 2rem;
+      max-width: 1200px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .benefit-icon {
+      background: var(--light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      display: inline-block;
+      position: relative;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: var(--secondary);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .product-image-container {
+      height: 250px;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+    }
+    
+    .product-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    
+    .product-details {
+      padding: 1.5rem;
+    }
+    
+    .product-title {
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem;
+      color: var(--dark);
+      font-weight: 600;
+    }
+    
+    .product-condition {
+      display: inline-block;
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    
+    .price-container {
+      margin: 1.2rem 0;
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: #9CA3AF;
+      font-size: 1rem;
+    }
+    
+    .current-price {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 0.3rem 0;
+    }
+    
+    .savings {
+      color: var(--success);
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .product-specs {
+      margin: 1.2rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .product-specs li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .product-specs li i {
+      color: var(--success);
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+      gap: 0.5rem;
+    }
+    
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: white;
+      border: 2px solid var(--whatsapp);
+    }
+    
+    .btn-whatsapp:hover {
+      background: #128C7E;
+      border-color: #128C7E;
+      transform: translateY(-2px);
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--whatsapp);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+      z-index: 100;
+      transition: all 0.3s;
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    
+    .reconditioning-section {
+      background: linear-gradient(135deg, #F9FAFB, #EFF6FF);
+      padding: 4rem 1.5rem;
+      margin: 4rem 0;
+      border-radius: 12px;
+    }
+    
+    .reconditioning-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .step-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .step-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--secondary);
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 1.5rem 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--secondary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #9CA3AF;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .benefits-bar {
+        grid-template-columns: 1fr;
+        margin-top: -3rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-mobile-alt"></i>
+      <span>NoonesTech</span>
+    </div>
+    <p>iPhones Recondicionados Premium com Garantia</p>
+  </header>
+  
+  <section class="hero">
+    <h2>Economize até 50% em iPhones Premium</h2>
+    <p>Todos os nossos aparelhos passam por rigorosos testes e incluem garantia de 1 ano</p>
+  </section>
+  
+  <div class="benefits-bar">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div>
+        <h4>1 Ano de Garantia</h4>
+        <p>Proteção completa</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+      <div>
+        <h4>Bateria 90%+</h4>
+        <p>Saúde verificada</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div>
+        <h4>Frete Grátis</h4>
+        <p>Para todo Brasil</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <div>
+        <h4>100% Testado</h4>
+        <p>50 pontos de verificação</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="section-title">
+      <h2>Nossos iPhones Recondicionados</h2>
+    </div>
+    
+    <div class="product-grid">
+      <!-- iPhone 16 Pro Max -->
+      <div class="product-card">
+        <div class="product-badge">Lançamento</div>
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/JKQq0Yj.jpg" alt="iPhone 16 Pro Max Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 16 Pro Max</h3>
+          <span class="product-condition">Estado: Como Novo</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 12.999</span>
+            <div class="current-price">R$ 9.099</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 3.900 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 256GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 95% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.7"</li>
+            <li><i class="fas fa-check"></i> Câmera tripla 48MP</li>
+            <li><i class="fas fa-check"></i> Chip A18 Pro</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2016%20Pro%20Max%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <!-- iPhone 15 Pro Max -->
+      <div class="product-card">
+        <div class="product-badge">Mais Vendido</div>
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/5XZz0Km.jpg" alt="iPhone 15 Pro Max Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 15 Pro Max</h3>
+          <span class="product-condition">Estado: Excelente</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 10.799</span>
+            <div class="current-price">R$ 7.559</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 3.240 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 256GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 92% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.7"</li>
+            <li><i class="fas fa-check"></i> Câmera tripla 48MP</li>
+            <li><i class="fas fa-check"></i> Chip A17 Pro</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2015%20Pro%20Max%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <!-- iPhone 14 Pro Max -->
+      <div class="product-card">
+        <div class="product-badge">Oferta</div>
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/8QZQZ0Q.jpg" alt="iPhone 14 Pro Max Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 14 Pro Max</h3>
+          <span class="product-condition">Estado: Muito Bom</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 8.999</span>
+            <div class="current-price">R$ 6.299</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 2.700 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 128GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 90% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.7"</li>
+            <li><i class="fas fa-check"></i> Câmera tripla 48MP</li>
+            <li><i class="fas fa-check"></i> Chip A16 Bionic</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2014%20Pro%20Max%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <!-- iPhone 13 Pro Max -->
+      <div class="product-card">
+        <div class="product-badge">Best Seller</div>
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/9QZQZ0Q.jpg" alt="iPhone 13 Pro Max Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 13 Pro Max</h3>
+          <span class="product-condition">Estado: Excelente</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 7.499</span>
+            <div class="current-price">R$ 5.249</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 2.250 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 256GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 91% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.7"</li>
+            <li><i class="fas fa-check"></i> Câmera tripla 12MP</li>
+            <li><i class="fas fa-check"></i> Chip A15 Bionic</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2013%20Pro%20Max%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <!-- iPhone 15 -->
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/5XZz0Km.jpg" alt="iPhone 15 Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 15</h3>
+          <span class="product-condition">Estado: Como Novo</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 7.999</span>
+            <div class="current-price">R$ 5.599</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 2.400 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 128GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 96% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.1"</li>
+            <li><i class="fas fa-check"></i> Câmera dupla 48MP</li>
+            <li><i class="fas fa-check"></i> Chip A16 Bionic</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2015%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <!-- iPhone 14 -->
+      <div class="product-card">
+        <div class="product-badge">Oferta</div>
+        <div class="product-image-container">
+          <img src="https://i.imgur.com/8QZQZ0Q.jpg" alt="iPhone 14 Recondicionado" class="product-image" loading="lazy">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">iPhone 14</h3>
+          <span class="product-condition">Estado: Muito Bom</span>
+          <div class="price-container">
+            <span class="original-price">De: R$ 6.499</span>
+            <div class="current-price">R$ 4.549</div>
+            <div class="savings">
+              <i class="fas fa-coins"></i> Economize R$ 1.950 (30%)
+            </div>
+          </div>
+          <ul class="product-specs">
+            <li><i class="fas fa-check"></i> 128GB de armazenamento</li>
+            <li><i class="fas fa-check"></i> Bateria com 89% de saúde</li>
+            <li><i class="fas fa-check"></i> Tela Super Retina XDR 6.1"</li>
+            <li><i class="fas fa-check"></i> Câmera dupla 12MP</li>
+            <li><i class="fas fa-check"></i> Chip A15 Bionic</li>
+          </ul>
+          <a href="https://wa.me/5511996285651?text=Quero%20comprar%20o%20iPhone%2014%20Recondicionado" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reconditioning-section">
+      <div class="section-title">
+        <h2>Nosso Processo de Recondicionamento</h2>
+      </div>
+      
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+        Cada iPhone passa por um rigoroso processo de 5 etapas para garantir qualidade e desempenho equivalentes a um aparelho novo.
+      </p>
+      
+      <div class="reconditioning-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Inspeção Completa</h3>
+          <p>Análise detalhada de todos os componentes físicos e eletrônicos para identificar necessidades de reparo.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Reparo e Substituição</h3>
+          <p>Troca de peças defeituosas por componentes originais ou de qualidade equivalente.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Limpeza Profunda</h3>
+          <p>Higienização completa, removendo poeira, sujeira e resíduos de todos os componentes.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Testes Rigorosos</h3>
+          <p>Verificação de todas as funcionalidades incluindo câmeras, sensores, conectividade e desempenho.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Preparação para Envio</h3>
+          <p>Empacotamento cuidadoso com todos os acessórios originais e aplicação de selo de garantia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>NoonesTech</h3>
+        <p>iPhones Recondicionados Premium com garantia e os melhores preços do mercado.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Produtos</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> iPhone 16 Series</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> iPhone 15 Series</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> iPhone 14 Series</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> iPhone 13 Series</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Institucional</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Garantia</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Troca</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Termos e Condições</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contato</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-phone-alt"></i> (11) 99628-5651</a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i> contato@noonestech.com</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - SP</a></li>
+          <li><a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 NoonesTech - Todos os direitos reservados | CNPJ: 12.345.678/0001-99</p>
+    </div>
+  </footer>
+  
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5511996285651" class="whatsapp-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
